@@ -38,7 +38,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <service android:name="com.example.pushclient.module.mqtt.PushService"/>
+        <service 
+            android:name="com.example.pushclient.module.mqtt.PushService"
+             android:process=":remote"
+            />
         <receiver android:name="com.example.pushclient.net.NetwrokConnectBroadcast">
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" /> 

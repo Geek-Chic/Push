@@ -9,7 +9,11 @@ import android.util.Log;
 
 public class SMSReceiver extends BroadcastReceiver {
 	private final static String TAG="SMSReceiver";
-    private final static String SMS_ACTION="android.provider.Telephony.SMS_RECEIVED";
+    public final static String SMS_ACTION="android.provider.Telephony.SMS_RECEIVED";
+    private OnPushMessageLinstener mOnMessageLinstener;
+    public void addPushMessageLinstener(OnPushMessageLinstener onPushMessageLinstener){
+        this.mOnMessageLinstener=onPushMessageLinstener;
+    }
 	@Override
 	public void onReceive(Context context, Intent intent) {
 		// TODO Auto-generated method stub
@@ -34,9 +38,14 @@ public class SMSReceiver extends BroadcastReceiver {
 			    	smsNumber=smsNumber.substring(3);
 			    }
 			    Log.e(TAG, smsNumber+":"+smsBody);
+			    if(mOnMessageLinstener!=null){
+			        this.mOnMessageLinstener.onMessageGet(0,smsBody);
+			    }
 //			    this.abortBroadcast();
 			}
 		}
 	}
-
+    public interface OnPushMessageLinstener{
+        public void onMessageGet(int msgType,String message);
+    }
 }

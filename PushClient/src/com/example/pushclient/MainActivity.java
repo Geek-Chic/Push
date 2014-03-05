@@ -56,8 +56,9 @@ public class MainActivity extends Activity {
 			// TODO Auto-generated method stub
 			mIaidlPushService=IAIDLPushService.Stub.asInterface(service);
 			try {
-				if(mPushMessageListener!=null)
-				mIaidlPushService.addPushListener(mPushMessageListener);
+				if(mPushMessageListener!=null){
+				    mIaidlPushService.registerNet("abc",mPushMessageListener);
+				}
 			} catch (RemoteException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

@@ -1,4 +1,4 @@
-package com.example.pushclient.net;
+package com.example.pushclient.module.net;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -10,10 +10,13 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.util.List;
+
+import com.example.pushclient.module.base.BasePushMessageChannel;
 
 import android.util.Log;
 
-public class PushConnector extends Thread {
+public class PushConnector extends Thread{
 	private static final String TAG="PushConnector";
   private static final String HOST = "192.168.1.103";  
   private static final int PORT = 9999;  
