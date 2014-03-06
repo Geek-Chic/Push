@@ -9,7 +9,7 @@ EOL2 = b'\n\n'
 response = b"test message"
 serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 serversocket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-serversocket.bind(('192.168.1.103', 9999))
+serversocket.bind(('192.168.6.103', 9999))
 serversocket.listen(1)
 serversocket.setblocking(0)
 # 
